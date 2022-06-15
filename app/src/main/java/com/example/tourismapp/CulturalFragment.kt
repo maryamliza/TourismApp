@@ -22,7 +22,7 @@ class CulturalFragment : Fragment(),OnMapReadyCallback {
         return inflater.inflate(R.layout.fragment_cultural, container, false)
 
         //maps
-        createFragment()
+        //createFragment()
     }
 
     //maps
