@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/culturalFragment"
+        android:title="@string/label_cultural" />
+    <item
+        android:id="@+id/entretenimientoFragment"
+        android:title="@string/label_entertainment" />
+</menu>
