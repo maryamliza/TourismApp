@@ -1,39 +1,37 @@
 package com.example.tourismapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.tourismapp.databinding.FragmentCulturalBinding
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 
-class CulturalFragment : Fragment(),OnMapReadyCallback {
+class CulturalFragment : Fragment() {
+    private lateinit var binding: FragmentCulturalBinding
 
-    //maps
-    private lateinit var map: GoogleMap
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cultural, container, false)
-
-        //maps
-        //createFragment()
+        binding = FragmentCulturalBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    //maps
-    private fun createFragment() {
-        val mapFragment: SupportMapFragment =
-            childFragmentManager.findFragmentById(R.id.maps) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViews()
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        map= googleMap
+    private fun setupViews() {
+        binding.btMaps.setOnClickListener {
+                findNavController().navigate(R.id.action_culturalFragment_to_mapFragment)
+        }
     }
-
 }
