@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 class MapFragment : Fragment(), OnMapReadyCallback {
 
@@ -34,6 +37,18 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map= googleMap
+        createMarker()
+    }
+
+    private fun createMarker(){
+        val coodinates = LatLng(28.043893,-16.539329)
+        val marker = MarkerOptions().position(coodinates).title("Mi playa fav")
+        map.addMarker(marker)
+        map.animateCamera(
+            CameraUpdateFactory.newLatLngZoom(coodinates),
+            4000,
+            null
+        )
     }
 
 }
