@@ -23,7 +23,10 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_map, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //maps
         createFragment()
     }
@@ -41,11 +44,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun createMarker(){
-        val coodinates = LatLng(28.043893,-16.539329)
-        val marker = MarkerOptions().position(coodinates).title("Mi playa fav")
+        val coordinates = LatLng(28.043893,-16.539329)
+        val marker = MarkerOptions().position(coordinates).title("Mi playa fav")
         map.addMarker(marker)
         map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coodinates),
+            CameraUpdateFactory.newLatLngZoom(coordinates,18f),
             4000,
             null
         )
