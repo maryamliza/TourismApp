@@ -43,6 +43,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
+        map.isMyLocationEnabled = true
+
         val service = RetrofitManager.getService()
         service.getPlaces().onSuccess { placeList ->
 

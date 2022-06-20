@@ -50,7 +50,7 @@ class CulturalFragment : Fragment() {
     }
 
     fun openDetail(place: Place) {
-        findNavController().navigate(R.id.action_culturalFragment_to_culturalDetailFragment)
+        findNavController().navigate(CulturalFragmentDirections.actionCulturalFragmentToCulturalDetailFragment(place))
     }
 
 }

@@ -29,5 +29,10 @@
         android:id="@+id/culturalDetailFragment"
         android:name="com.example.tourismapp.model.CulturalDetailFragment"
         android:label="fragment_cultural_detail"
-        tools:layout="@layout/fragment_cultural_detail"
+        tools:layout="@layout/fragment_cultural_detail">
+
+        <argument
+            android:name="detail"
+            app:argType="com.example.tourismapp.Place" />
+    </fragment>
 </navigation>
