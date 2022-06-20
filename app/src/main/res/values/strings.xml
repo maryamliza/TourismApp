@@ -8,5 +8,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nombre_lugar_turistico">Nombre lugar turistico</string>
     <string name="abierto">abierto</string>
+    <string name="descripcion_del_lugar">Descripcion del lugar</string>
 
 </resources>

@@ -16,10 +16,18 @@
         <action
             android:id="@+id/action_culturalFragment_to_mapFragment"
             app:destination="@id/mapFragment" />
+        <action
+            android:id="@+id/action_culturalFragment_to_culturalDetailFragment"
+            app:destination="@id/culturalDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.tourismapp.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/culturalDetailFragment"
+        android:name="com.example.tourismapp.model.CulturalDetailFragment"
+        android:label="fragment_cultural_detail"
+        tools:layout="@layout/fragment_cultural_detail"
 </navigation>

@@ -38,12 +38,19 @@ class CulturalFragment : Fragment() {
         service.getPlaces().onSuccess {
             Log.e("ML",it.toString())
             val recycler = binding.rcPlaces
-            recycler.adapter = PlaceAdapter(it)
+            recycler.adapter = PlaceAdapter(it, ::openDetail)
         }
 
         Glide.with( requireContext() )
             .load( "https://fotografias.lasexta.com/clipping/cmsimages02/2020/0" +
                     "9/21/86828440-B1FB-43AC-9E9C-A94AC6A4B8BD/default.jpg?crop=1300,731,x0,y0&width=1900&height=1069&optimize=low" )
         .into( binding.ivDummmy )
+
+
     }
+
+    fun openDetail(place: Place) {
+        findNavController().navigate(R.id.action_culturalFragment_to_culturalDetailFragment)
+    }
+
 }
