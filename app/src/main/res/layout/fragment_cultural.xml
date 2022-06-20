@@ -16,15 +16,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/iv_dummmy"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toEndOf="@id/bt_maps"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_places"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/item_place"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/bt_maps"
-        app:layout_constraintTop_toBottomOf="@+id/bt_maps" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_maps"
+        tools:listitem="@layout/item_place" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

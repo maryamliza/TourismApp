@@ -1,10 +1,12 @@
 package com.example.tourismapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.tourismapp.model.RetrofitManager
+import com.example.tourismapp.model.onSuccess
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -39,19 +41,26 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        map= googleMap
-        createMarker()
+        map = googleMap
+
+        val service = RetrofitManager.getService()
+        service.getPlaces().onSuccess { placeList ->
+
+            for (place in placeList) {
+                createMarker(place)
+            }
+        }
     }
 
-    private fun createMarker(){
-        val coordinates = LatLng(28.043893,-16.539329)
-        val marker = MarkerOptions().position(coordinates).title("Mi playa fav")
+    private fun createMarker(place: Place) {
+        val coordinates = LatLng(place.latitude, place.longitude)
+        val marker = MarkerOptions().position(coordinates).title(place.name)
         map.addMarker(marker)
-        map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coordinates,18f),
-            4000,
-            null
-        )
+//        map.animateCamera(
+//            CameraUpdateFactory.newLatLngZoom(coordinates, 18f),
+//            400,
+//            null
+//        )
     }
 
 }
