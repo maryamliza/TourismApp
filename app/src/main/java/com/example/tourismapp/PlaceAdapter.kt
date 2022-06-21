@@ -1,5 +1,6 @@
 package com.example.tourismapp
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,10 +27,18 @@ class PlaceAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val place = objList[position]
         val binding = holder.binding
+        val statusText = place.getOpenStatus()
         binding.tvName.text = place.name
-        binding.tvStatus.text = place.status
+        binding.tvStatus.text = statusText
 
-        binding.tvName.setOnClickListener {
+        if(statusText=="abierto"){
+            binding.tvStatus.setTextColor(Color.BLACK)
+        } else{
+            binding.tvStatus.setTextColor(Color.RED)
+        }
+
+
+        binding.container.setOnClickListener {
             navigateToDetail(place)
         }
 
